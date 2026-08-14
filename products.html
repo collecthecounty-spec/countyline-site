@@ -4,8 +4,11 @@ permalink: /products/
 ---
 <div class="page-head">
   <div class="eyebrow">Products</div>
-  <h2>Sell</h2>
-  <p>Cool things, made with intention.</p>
+  <div style="display:flex; align-items:center; gap:14px; flex-wrap:wrap;">
+    <h2 style="margin:0;">Supply</h2>
+    <span class="status-tag">Coming Soon</span>
+  </div>
+  <p style="margin-top:12px;">Cool things made with intention.</p>
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
 {% assign products = site.posts | where: "section", "products" | sort: "date" | reverse %}
