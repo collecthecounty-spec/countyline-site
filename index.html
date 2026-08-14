@@ -106,7 +106,7 @@
   h1.wordmark{
     font-family:'Fraunces', serif;
     font-weight:500;
-    font-size:clamp(42px, 8vw, 84px);
+    font-size:clamp(38px, 7vw, 72px);
     line-height:0.95;
     margin:0 0 28px;
     color:var(--pine-deep);
@@ -137,6 +137,55 @@
   .teaser-card .mono{font-size:11px; color:var(--rust); display:block; margin-bottom:8px;}
   .teaser-card h4{font-family:'Fraunces', serif; font-size:18px; margin:0 0 6px; font-weight:500;}
   .teaser-card p{font-size:13.5px; color:var(--ink-soft); margin:0; line-height:1.5;}
+
+  /* ---- Recently (featured rotator) ---- */
+  .featured-wrap{position:relative; margin-top:8px;}
+  .featured-card{
+    display:none; grid-template-columns:220px 1fr; align-items:stretch;
+    border:1px solid var(--line); background:var(--paper-dim);
+  }
+  .featured-card.active{display:grid; animation:fadeIn .4s ease;}
+  .featured-visual{min-height:200px;}
+  .featured-info{padding:26px 26px 26px 24px; display:flex; flex-direction:column; justify-content:center;}
+  .featured-tag{font-size:11px; color:var(--rust); display:block; margin-bottom:10px;}
+  .featured-info h3{font-family:'Fraunces', serif; font-weight:500; font-size:28px; margin:0 0 10px; color:var(--pine-deep);}
+  .featured-info p{font-size:15.5px; line-height:1.6; color:var(--ink-soft); margin:0 0 18px; max-width:440px;}
+  .featured-link{
+    align-self:flex-start; font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
+    letter-spacing:0.05em; background:none; border:none; color:var(--pine-deep); cursor:pointer; padding:0 0 2px;
+    border-bottom:1px solid var(--pine-deep);
+  }
+  .featured-link:hover{color:var(--rust); border-color:var(--rust);}
+  .featured-dots{display:flex; gap:8px; justify-content:center; margin-top:16px;}
+  .featured-dots .dot{width:7px; height:7px; border-radius:50%; background:var(--line); border:none; cursor:pointer; padding:0;}
+  .featured-dots .dot.active{background:var(--pine);}
+
+  /* ---- More from CountyLine ---- */
+  .more-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:8px;}
+  .more-card{
+    border:1px solid var(--line); padding:18px 16px; cursor:pointer;
+    background:var(--paper); transition:transform .15s, border-color .15s;
+    text-align:left; font-family:inherit; color:inherit;
+  }
+  .more-card:hover{transform:translateY(-2px); border-color:var(--pine);}
+  .more-card .mono{font-size:10.5px; color:var(--rust); display:block; margin-bottom:7px;}
+  .more-card h4{font-family:'Fraunces', serif; font-size:16.5px; margin:0 0 5px; font-weight:500;}
+  .more-card p{font-size:13px; color:var(--ink-soft); margin:0; line-height:1.5;}
+
+  /* ---- Home visuals carousel ---- */
+  .visual-carousel{display:flex; align-items:center; gap:10px; margin-top:8px;}
+  .carousel-track{
+    display:flex; gap:14px; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory;
+    padding-bottom:4px;
+  }
+  .carousel-track::-webkit-scrollbar{height:6px;}
+  .carousel-track::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
+  .carousel-track .archive-tile{flex:0 0 200px; scroll-snap-align:start;}
+  .carousel-arrow{
+    flex:0 0 auto; width:34px; height:34px; border:1px solid var(--line); background:var(--paper-dim);
+    color:var(--pine-deep); font-size:16px; cursor:pointer; border-radius:2px;
+  }
+  .carousel-arrow:hover{border-color:var(--pine); background:var(--paper);}
 
   /* ---- Section headers ---- */
   .page-head{padding-top:64px;}
@@ -248,6 +297,11 @@
     .archive-grid{grid-template-columns:repeat(2,1fr);}
     .article-row{flex-direction:column; gap:6px;}
     .article-row .meta{flex:none;}
+    .featured-card{grid-template-columns:1fr;}
+    .featured-visual{min-height:140px;}
+    .featured-info{padding:20px;}
+    .more-grid{grid-template-columns:1fr;}
+    .carousel-track .archive-tile{flex:0 0 160px;}
   }
 </style>
 </head>
@@ -272,51 +326,95 @@
   <section id="home" class="active">
     <div class="hero">
       <div class="eyebrow">A publication &amp; archive</div>
-      <h1 class="wordmark">County<br><em>Line</em>.</h1>
-      <p class="lede">Essays, film, and things worth showing — kept under one name. CountyLine is a running archive of what looks different once you cross the line and look back.</p>
+      <h1 class="wordmark">County<em>Line</em>.</h1>
+      <p class="lede">Talking about cool stuff.</p>
     </div>
 
-    <div class="identity-row">
-      <div class="identity-item">
-        <div class="num mono">01</div>
-        <h3>Write</h3>
-        <p>Essays and storytelling.</p>
+    <div class="marker-line"><div class="tick"></div><div class="rule"></div><span class="marker-label">RECENTLY</span><div class="rule"></div><div class="tick"></div></div>
+
+    <div class="featured-wrap">
+      <div class="featured-card active" data-i="0">
+        <div class="featured-visual t1"></div>
+        <div class="featured-info">
+          <span class="mono featured-tag">ESSAY · AUG 2026</span>
+          <h3>Two Truths</h3>
+          <p>Two weeks across Europe surfaced a quality of life that made the bubble back home visible for the first time — and left room for both feelings to be true at once.</p>
+          <button class="featured-link" onclick="showSection('articles')">Read it →</button>
+        </div>
       </div>
-      <div class="identity-item">
-        <div class="num mono">02</div>
-        <h3>Film</h3>
-        <p>Video on things worth seeing.</p>
+      <div class="featured-card" data-i="1">
+        <div class="featured-visual t4"></div>
+        <div class="featured-info">
+          <span class="mono featured-tag">PROJECT · IN PROGRESS</span>
+          <h3>Currently working on</h3>
+          <p>A travel essay paired with edited footage from London and rural Sweden — short-form cuts rolling out to Instagram and TikTok, full essay on Substack.</p>
+          <button class="featured-link" onclick="showSection('projects')">See what's next →</button>
+        </div>
       </div>
-      <div class="identity-item">
-        <div class="num mono">03</div>
-        <h3>Show</h3>
-        <p>Curating what's interesting.</p>
+      <div class="featured-card" data-i="2">
+        <div class="featured-visual t3"></div>
+        <div class="featured-info">
+          <span class="mono featured-tag">ESSAY · JUL 2026</span>
+          <h3>Timepieces Are Absurd</h3>
+          <p>A short piece on the strange arbitrariness of how we've agreed to measure a day.</p>
+          <button class="featured-link" onclick="showSection('articles')">Read it →</button>
+        </div>
       </div>
-      <div class="identity-item">
-        <div class="num mono">04</div>
-        <h3>Sell</h3>
-        <p>Cool things, made and sold.</p>
+      <div class="featured-dots">
+        <button class="dot active" data-i="0" aria-label="Featured item 1"></button>
+        <button class="dot" data-i="1" aria-label="Featured item 2"></button>
+        <button class="dot" data-i="2" aria-label="Featured item 3"></button>
       </div>
     </div>
 
-    <div class="marker-line"><div class="tick"></div><div class="rule"></div><span class="marker-label">START HERE</span><div class="rule"></div><div class="tick"></div></div>
+    <div class="marker-line"><div class="tick"></div><div class="rule"></div><span class="marker-label">MORE FROM COUNTYLINE</span><div class="rule"></div><div class="tick"></div></div>
 
-    <div class="teaser-grid">
-      <button class="teaser-card" onclick="showSection('articles')">
-        <span class="mono">LATEST WRITING</span>
+    <div class="more-grid">
+      <button class="more-card" onclick="showSection('articles')">
+        <span class="mono">ESSAY · AUG 2026</span>
         <h4>Two Truths</h4>
         <p>On coming home from Europe with a mind that won't fit back in the same bubble.</p>
       </button>
-      <button class="teaser-card" onclick="showSection('projects')">
-        <span class="mono">IN PROGRESS</span>
+      <button class="more-card" onclick="showSection('projects')">
+        <span class="mono">PROJECT · AUG 2026</span>
         <h4>Currently working on</h4>
-        <p>A look at what's being built right now, before it's finished.</p>
+        <p>What's in motion right now, before it's finished.</p>
       </button>
-      <button class="teaser-card" onclick="showSection('about')">
-        <span class="mono">START HERE</span>
+      <button class="more-card" onclick="showSection('articles')">
+        <span class="mono">ESSAY · JUL 2026</span>
+        <h4>Timepieces Are Absurd</h4>
+        <p>The strange arbitrariness of how we've agreed to measure a day.</p>
+      </button>
+      <button class="more-card" onclick="showSection('archives')">
+        <span class="mono">ARCHIVE · JUL 2026</span>
+        <h4>London &amp; Rural Sweden</h4>
+        <p>Field notes and visuals from two weeks on the road.</p>
+      </button>
+      <button class="more-card" onclick="showSection('projects')">
+        <span class="mono">PROJECT · JUN 2026</span>
+        <h4>Getting Instagram &amp; TikTok in sync</h4>
+        <p>Building the funnel from social clips to full pieces.</p>
+      </button>
+      <button class="more-card" onclick="showSection('about')">
+        <span class="mono">ABOUT · START HERE</span>
         <h4>What is CountyLine?</h4>
         <p>The idea behind the name, and why it's a pseudonym, not a brand.</p>
       </button>
+    </div>
+
+    <div class="marker-line"><div class="tick"></div><div class="rule"></div><span class="marker-label">ARCHIVES &amp; VISUALS</span><div class="rule"></div><div class="tick"></div></div>
+
+    <div class="visual-carousel">
+      <button class="carousel-arrow" onclick="scrollHomeCarousel(-1)" aria-label="Scroll left">‹</button>
+      <div class="carousel-track" id="homeCarousel">
+        <div class="archive-tile t1"><span class="cap mono">LONDON</span></div>
+        <div class="archive-tile t2"><span class="cap mono">SWEDEN, RURAL</span></div>
+        <div class="archive-tile t3"><span class="cap mono">TRANSIT</span></div>
+        <div class="archive-tile t4"><span class="cap mono">STREET</span></div>
+        <div class="archive-tile t5"><span class="cap mono">FIELD NOTES</span></div>
+        <div class="archive-tile t6"><span class="cap mono">LA</span></div>
+      </div>
+      <button class="carousel-arrow" onclick="scrollHomeCarousel(1)" aria-label="Scroll right">›</button>
     </div>
   </section>
 
@@ -549,7 +647,7 @@
 <footer>
   <div class="footer-top">
     <span>CountyLine.LA</span>
-    <span>Write / Film / Show / Sell</span>
+    <span>Talking about cool stuff.</span>
   </div>
   <div class="footer-legal">
     <button onclick="showSection('privacy')">Privacy Policy</button>
@@ -571,6 +669,35 @@
   function handleSubmit(e){
     e.preventDefault();
     document.getElementById('formNote').textContent = "Thanks — this is a placeholder for now. Wire this up to a form service before going live.";
+  }
+
+  // Recently: auto-rotating featured card
+  const featuredCards = document.querySelectorAll('.featured-card');
+  const featuredDots = document.querySelectorAll('.featured-dots .dot');
+  let featuredIndex = 0;
+  let featuredTimer;
+  function showFeatured(i){
+    featuredCards.forEach(c => c.classList.remove('active'));
+    featuredDots.forEach(d => d.classList.remove('active'));
+    featuredCards[i].classList.add('active');
+    featuredDots[i].classList.add('active');
+    featuredIndex = i;
+  }
+  function startFeaturedTimer(){
+    featuredTimer = setInterval(() => showFeatured((featuredIndex + 1) % featuredCards.length), 6000);
+  }
+  if(featuredCards.length){
+    startFeaturedTimer();
+    featuredDots.forEach(d => d.addEventListener('click', () => {
+      showFeatured(Number(d.dataset.i));
+      clearInterval(featuredTimer);
+      startFeaturedTimer();
+    }));
+  }
+
+  // Archives & visuals carousel
+  function scrollHomeCarousel(dir){
+    document.getElementById('homeCarousel').scrollBy({left: dir * 220, behavior:'smooth'});
   }
 </script>
 
