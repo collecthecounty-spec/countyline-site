@@ -8,7 +8,11 @@ layout: default
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
 
-{% if page.visual %}<div class="post-visual {{ page.visual }}"></div>{% endif %}
+{% if page.image %}
+<div class="post-visual" style="background-image:url('{{ page.image | relative_url }}');"></div>
+{% elsif page.visual %}
+<div class="post-visual {{ page.visual }}"></div>
+{% endif %}
 
 <div class="post-body">
 {{ content }}

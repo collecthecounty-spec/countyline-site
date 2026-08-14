@@ -38,6 +38,33 @@ Everything after the second `---` is the body — write it as plain Markdown (pa
 - **popular: true** — (archives only) bumps this entry to the front of the "Archives & Visuals" carousel on the home page, ahead of ones sorted by date.
 - **visual: t1** through **t6** — picks one of six built-in gradient backgrounds for the post's visual banner and its tile in Archives/the home carousel. Cycle through `t1`–`t6` for variety; there's no need to keep them unique.
 - **tag: "Some short label"** — projects only. Overrides the mono label shown on the Projects page (e.g. "Channel build-out") instead of just showing "Project".
+- **image: /assets/images/your-photo.jpg** — a real photo for this post. When set, it replaces the `visual` gradient everywhere this post's thumbnail shows up: the Articles listing row, the Archives grid/carousel tile, and the post's own banner. See "Adding photos and videos" below.
+
+## Adding photos and videos
+
+**A thumbnail / banner photo for the whole post:** upload the image file to the repo, then point `image:` at it in front matter.
+
+1. On github.com, open the `assets/images` folder (create it if it doesn't exist yet: **Add file → Upload files**, then type `assets/images/` as part of the path before dropping the file in).
+2. Drag your photo in and commit. Note the path it ends up at, e.g. `assets/images/two-truths-01.jpg`.
+3. In the post's front matter, add:
+   ```yaml
+   image: /assets/images/two-truths-01.jpg
+   ```
+   (Note the leading `/`.) This becomes the post's thumbnail on the Articles/Archives listings, its tile in the home page carousel, and the banner image at the top of the post itself — no `visual: tN` needed once `image` is set.
+
+**Photos inside the article body** (in addition to, or instead of, the banner): just use normal Markdown image syntax anywhere in the post body, after uploading the file the same way:
+```markdown
+![A description of the photo](/assets/images/two-truths-02.jpg)
+```
+It'll appear inline, full-width, with a thin border matching the site's style.
+
+**Videos:** for anything beyond a quick clip, upload it to YouTube or Vimeo (unlisted works fine if you don't want it public there) and embed it in the post body with:
+```html
+<div class="video-embed">
+  <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" allowfullscreen></iframe>
+</div>
+```
+That `video-embed` wrapper is already styled site-wide to size the video responsively — just drop it in wherever you want the video to appear in the body. (Get `YOUR_VIDEO_ID` from the YouTube share/embed link, not the regular watch URL.)
 
 ## Templates
 

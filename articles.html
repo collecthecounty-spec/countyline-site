@@ -12,6 +12,7 @@ permalink: /articles/
   {% assign articles = site.posts | where: "section", "articles" | sort: "date" | reverse %}
   {% for post in articles %}
   <a class="article-row" href="{{ post.url | relative_url }}">
+    {% if post.image %}<img class="thumb" src="{{ post.image | relative_url }}" alt="">{% endif %}
     <div class="meta">{{ post.date | date: "%b %Y" | upcase }}</div>
     <div class="body">
       <h3>{{ post.title }}</h3>

@@ -20,7 +20,11 @@ permalink: /
 <div class="featured-wrap">
   {% for post in featured_posts %}
   <div class="featured-card{% if forloop.first %} active{% endif %}" data-i="{{ forloop.index0 }}">
+    {% if post.image %}
+    <div class="featured-visual" style="background-image:url('{{ post.image | relative_url }}');"></div>
+    {% else %}
     <div class="featured-visual {{ post.visual | default: 't1' }}"></div>
+    {% endif %}
     <div class="featured-info">
       <span class="mono featured-tag">{{ post.type | upcase }} · {{ post.date | date: "%b %Y" | upcase }}</span>
       <h3>{{ post.title }}</h3>
@@ -68,7 +72,11 @@ permalink: /
   <button class="carousel-arrow" onclick="scrollHomeCarousel(-1)" aria-label="Scroll left">‹</button>
   <div class="carousel-track" id="homeCarousel">
     {% for post in carousel_posts %}
+    {% if post.image %}
+    <a class="archive-tile has-image" href="{{ post.url | relative_url }}" style="background-image:url('{{ post.image | relative_url }}');"><span class="cap mono">{{ post.title | upcase }}</span></a>
+    {% else %}
     <a class="archive-tile {{ post.visual | default: 't1' }}" href="{{ post.url | relative_url }}"><span class="cap mono">{{ post.title | upcase }}</span></a>
+    {% endif %}
     {% endfor %}
   </div>
   <button class="carousel-arrow" onclick="scrollHomeCarousel(1)" aria-label="Scroll right">›</button>

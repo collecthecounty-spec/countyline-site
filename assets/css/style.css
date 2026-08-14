@@ -113,7 +113,7 @@ h1.wordmark{
   border:1px solid var(--line); background:var(--paper-dim);
 }
 .featured-card.active{display:grid; animation:fadeIn .4s ease;}
-.featured-visual{min-height:200px;}
+.featured-visual{min-height:200px; background-size:cover; background-position:center;}
 .featured-info{padding:26px 26px 26px 24px; display:flex; flex-direction:column; justify-content:center;}
 .featured-tag{font-size:11px; color:var(--rust); display:block; margin-bottom:10px;}
 .featured-info h3{font-family:'Fraunces', serif; font-weight:500; font-size:28px; margin:0 0 10px; color:var(--pine-deep);}
@@ -166,11 +166,14 @@ h1.wordmark{
 /* ---- Articles / listing rows ---- */
 .article-list{display:flex; flex-direction:column;}
 .article-row{
-  display:flex; justify-content:space-between; align-items:baseline;
-  gap:24px; padding:26px 0; border-bottom:1px solid var(--line);
+  display:flex; align-items:center;
+  gap:20px; padding:26px 0; border-bottom:1px solid var(--line);
 }
 .article-row:hover h3{color:var(--rust);}
-.article-row .meta{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); flex:0 0 130px;}
+.article-row .thumb{
+  flex:0 0 88px; width:88px; height:88px; object-fit:cover; border:1px solid var(--line);
+}
+.article-row .meta{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); flex:0 0 110px;}
 .article-row .body{flex:1;}
 .article-row h3{font-family:'Fraunces', serif; font-weight:500; font-size:22px; margin:0 0 8px; transition:color .15s;}
 .article-row p{margin:0; color:var(--ink-soft); font-size:14.5px; line-height:1.55; max-width:520px;}
@@ -186,6 +189,7 @@ h1.wordmark{
   display:flex; align-items:flex-end; padding:14px;
 }
 .archive-tile .cap{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--paper); position:relative; z-index:1;}
+.archive-tile{background-size:cover; background-position:center;}
 .archive-tile::before{content:''; position:absolute; inset:0;}
 .archive-tile.t1::before{background:linear-gradient(160deg,#3B5744,#20301F);}
 .archive-tile.t2::before{background:linear-gradient(160deg,#8A6B45,#4A3A28);}
@@ -193,6 +197,7 @@ h1.wordmark{
 .archive-tile.t4::before{background:linear-gradient(160deg,#9C5A34,#5A3319);}
 .archive-tile.t5::before{background:linear-gradient(160deg,#46504A,#232B26);}
 .archive-tile.t6::before{background:linear-gradient(160deg,#7A7057,#3E3826);}
+.archive-tile.has-image::before{background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,0.6) 100%);}
 
 /* ---- Projects ---- */
 .project-item{border-left:2px solid var(--pine); padding:6px 0 6px 22px; margin-bottom:34px; display:block;}
@@ -212,7 +217,7 @@ h1.wordmark{
 .about-body strong{color:var(--pine-deep); font-weight:600;}
 
 /* ---- Post detail page ---- */
-.post-visual{aspect-ratio:16/6; border:1px solid var(--line); margin-bottom:40px;}
+.post-visual{aspect-ratio:16/6; border:1px solid var(--line); margin-bottom:40px; background-size:cover; background-position:center;}
 .post-visual.t1{background:linear-gradient(160deg,#3B5744,#20301F);}
 .post-visual.t2{background:linear-gradient(160deg,#8A6B45,#4A3A28);}
 .post-visual.t3{background:linear-gradient(160deg,#5B6B6C,#2B3839);}
@@ -225,6 +230,10 @@ h1.wordmark{
 .post-body ul, .post-body ol{margin:0 0 20px; padding-left:22px;}
 .post-body li{margin-bottom:8px;}
 .post-body a{color:var(--pine); text-decoration:underline;}
+.post-body img{max-width:100%; height:auto; display:block; border:1px solid var(--line); margin:28px 0;}
+.post-body figcaption{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin:-20px 0 28px;}
+.post-body .video-embed{position:relative; padding-bottom:56.25%; height:0; margin:28px 0; border:1px solid var(--line); background:var(--paper-dim);}
+.post-body .video-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
 .back-link{
   display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
   letter-spacing:0.05em; color:var(--ink-soft); margin-top:48px; border-top:1px solid var(--line); padding-top:20px;
@@ -278,8 +287,9 @@ footer{
   nav{gap:0; width:100%; justify-content:flex-start; overflow-x:auto;}
   main{padding:0 18px 100px;}
   .archive-grid{grid-template-columns:repeat(2,1fr);}
-  .article-row{flex-direction:column; gap:6px;}
+  .article-row{flex-direction:column; align-items:flex-start; gap:6px;}
   .article-row .meta{flex:none;}
+  .article-row .thumb{width:100%; height:auto; aspect-ratio:16/9;}
   .featured-card{grid-template-columns:1fr;}
   .featured-visual{min-height:140px;}
   .featured-info{padding:20px;}

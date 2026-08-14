@@ -11,6 +11,10 @@ permalink: /archives/
 <div class="archive-grid">
   {% assign archives = site.posts | where: "section", "archives" | sort: "date" | reverse %}
   {% for post in archives %}
+  {% if post.image %}
+  <a class="archive-tile has-image" href="{{ post.url | relative_url }}" style="background-image:url('{{ post.image | relative_url }}');"><span class="cap mono">{{ post.title | upcase }}</span></a>
+  {% else %}
   <a class="archive-tile {{ post.visual | default: 't1' }}" href="{{ post.url | relative_url }}"><span class="cap mono">{{ post.title | upcase }}</span></a>
+  {% endif %}
   {% endfor %}
 </div>
