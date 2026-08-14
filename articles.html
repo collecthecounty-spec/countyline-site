@@ -1,0 +1,30 @@
+---
+title: Articles
+permalink: /articles/
+---
+<div class="page-head">
+  <div class="eyebrow">Articles</div>
+  <h2>The writing</h2>
+  <p>Essays and longer-form pieces — full versions live here first.</p>
+</div>
+<div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+<div class="article-list">
+  {% assign articles = site.posts | where: "section", "articles" | sort: "date" | reverse %}
+  {% for post in articles %}
+  <a class="article-row" href="{{ post.url | relative_url }}">
+    <div class="meta">{{ post.date | date: "%b %Y" | upcase }}</div>
+    <div class="body">
+      <h3>{{ post.title }}</h3>
+      <p>{{ post.excerpt }}</p>
+    </div>
+  </a>
+  {% endfor %}
+  <div class="article-row">
+    <div class="meta">—</div>
+    <div class="body">
+      <h3 style="color:var(--ink-soft);">More coming</h3>
+      <p>New essays post here as they're finished. No fixed schedule — every piece has to earn its place.</p>
+    </div>
+    <span class="status-tag">Soon</span>
+  </div>
+</div>

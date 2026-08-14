@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="page-head">
+  <div class="eyebrow">{{ page.type }}</div>
+  <h2>{{ page.title }}</h2>
+  <p class="mono" style="font-size:12px;">{{ page.date | date: "%B %-d, %Y" }}</p>
+</div>
+<div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+
+{% if page.visual %}<div class="post-visual {{ page.visual }}"></div>{% endif %}
+
+<div class="post-body">
+{{ content }}
+</div>
+
+<a class="back-link" href="{{ page.section | prepend: '/' | append: '/' | relative_url }}">← Back to {{ page.section | capitalize }}</a>

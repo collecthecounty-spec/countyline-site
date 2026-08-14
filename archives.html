@@ -1,0 +1,16 @@
+---
+title: Archives
+permalink: /archives/
+---
+<div class="page-head">
+  <div class="eyebrow">Archives</div>
+  <h2>Visuals</h2>
+  <p>A running visual record — this section is still finding its shape.</p>
+</div>
+<div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+<div class="archive-grid">
+  {% assign archives = site.posts | where: "section", "archives" | sort: "date" | reverse %}
+  {% for post in archives %}
+  <a class="archive-tile {{ post.visual | default: 't1' }}" href="{{ post.url | relative_url }}"><span class="cap mono">{{ post.title | upcase }}</span></a>
+  {% endfor %}
+</div>

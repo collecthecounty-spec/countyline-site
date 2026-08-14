@@ -1,0 +1,26 @@
+title: CountyLine.LA
+description: "A publication & archive — essays, film, and things worth showing."
+url: "https://countylinehq.com"
+baseurl: ""
+
+markdown: kramdown
+
+collections:
+  posts:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+exclude:
+  - README.md
+  - HOW-TO-PUBLISH.md
+  - LICENSE

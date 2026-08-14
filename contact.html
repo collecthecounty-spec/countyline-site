@@ -1,0 +1,27 @@
+---
+title: Contact
+permalink: /contact/
+---
+<div class="page-head">
+  <div class="eyebrow">Contact</div>
+  <h2>Get in touch</h2>
+  <p>Questions, collaborations, or just want to say something — send a note.</p>
+</div>
+<div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+<form onsubmit="handleSubmit(event)">
+  <label for="name">Name</label>
+  <input id="name" type="text" required>
+  <label for="email">Email</label>
+  <input id="email" type="email" required>
+  <label for="message">Message</label>
+  <textarea id="message" required></textarea>
+  <button type="submit" class="submit-btn">Send message</button>
+</form>
+<p class="contact-note" id="formNote">This form needs a backend or form service (e.g. Formspree, a simple mailto link) once the site is live — right now it's a styled placeholder.</p>
+
+<script>
+  function handleSubmit(e){
+    e.preventDefault();
+    document.getElementById('formNote').textContent = "Thanks — this is a placeholder for now. Wire this up to a form service before going live.";
+  }
+</script>

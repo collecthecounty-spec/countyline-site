@@ -1,0 +1,18 @@
+---
+title: Projects
+permalink: /projects/
+---
+<div class="page-head">
+  <div class="eyebrow">Projects</div>
+  <h2>Currently working on</h2>
+  <p>What's in motion right now, before it's finished.</p>
+</div>
+<div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+{% assign projects = site.posts | where: "section", "projects" | sort: "date" | reverse %}
+{% for post in projects %}
+<a class="project-item" href="{{ post.url | relative_url }}">
+  <span class="mono">{{ post.tag | default: post.type }}</span>
+  <h3>{{ post.title }}</h3>
+  <p>{{ post.excerpt }}</p>
+</a>
+{% endfor %}
