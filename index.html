@@ -26,7 +26,7 @@ permalink: /
     <div class="featured-visual {{ post.visual | default: 't1' }}"></div>
     {% endif %}
     <div class="featured-info">
-      <span class="mono featured-tag">{{ post.type | upcase }} · {{ post.date | date: "%b %Y" | upcase }}</span>
+      <span class="mono featured-tag">{{ post.type | upcase }} · {{ post.date | date: "%b %Y" | upcase }}{% if post.issue %} · {{ post.issue | upcase }}{% endif %}</span>
       <h3>{{ post.title }}</h3>
       <p>{{ post.excerpt }}</p>
       <a class="featured-link" href="{{ post.url | relative_url }}">Read it →</a>
@@ -51,10 +51,13 @@ permalink: /
 
 <div class="more-grid">
   {% for post in more_posts %}
-  <a class="more-card" href="{{ post.url | relative_url }}">
-    <span class="mono">{{ post.type | upcase }} · {{ post.date | date: "%b %Y" | upcase }}</span>
-    <h4>{{ post.title }}</h4>
-    <p>{{ post.excerpt }}</p>
+  <a class="more-card{% if post.image %} has-image{% endif %}" href="{{ post.url | relative_url }}">
+    {% if post.image %}<img class="more-thumb" src="{{ post.image | relative_url }}" alt="">{% endif %}
+    <div class="more-card-body">
+      <span class="mono">{{ post.type | upcase }} · {{ post.date | date: "%b %Y" | upcase }}{% if post.issue %} · {{ post.issue | upcase }}{% endif %}</span>
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.excerpt }}</p>
+    </div>
   </a>
   {% endfor %}
 </div>

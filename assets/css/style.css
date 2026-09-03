@@ -136,6 +136,9 @@ h1.wordmark{
   text-align:left; font-family:inherit; color:inherit; display:block;
 }
 .more-card:hover{transform:translateY(-2px); border-color:var(--pine);}
+.more-card.has-image{display:flex; gap:14px; align-items:flex-start;}
+.more-card .more-thumb{flex:0 0 56px; width:56px; height:56px; object-fit:cover; border:1px solid var(--line);}
+.more-card-body{flex:1; min-width:0;}
 .more-card .mono{font-size:10.5px; color:var(--rust); display:block; margin-bottom:7px;}
 .more-card h4{font-family:'Fraunces', serif; font-size:16.5px; margin:0 0 5px; font-weight:500;}
 .more-card p{font-size:13px; color:var(--ink-soft); margin:0; line-height:1.5;}
