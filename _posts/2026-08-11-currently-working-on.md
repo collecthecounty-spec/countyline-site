@@ -6,7 +6,6 @@ section: projects
 permalink: /projects/two-truths/
 excerpt: "A travel essay paired with edited footage from London and rural Sweden — short-form cuts rolling out to Instagram and TikTok, full essay on Substack."
 visual: t4
-featured: true
 ---
 A travel essay paired with edited footage from London and rural Sweden — short-form cuts rolling out to Instagram and TikTok, full essay on Substack.
 
