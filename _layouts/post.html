@@ -2,13 +2,29 @@
 layout: default
 ---
 <div class="page-head">
-  <div class="eyebrow">{{ page.type }}</div>
+  <div class="eyebrow">{{ page.type }}{% if page.issue %} · {{ page.issue }}{% endif %}</div>
   <h2>{{ page.title }}</h2>
   <p class="mono" style="font-size:12px;">{{ page.date | date: "%B %-d, %Y" }}</p>
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
 
-{% if page.image %}
+{% if page.gallery %}
+<div class="post-gallery">
+  <button class="carousel-arrow" onclick="scrollPostGallery(-1)" aria-label="Scroll left">‹</button>
+  <div class="gallery-track" id="postGallery">
+    {% for src in page.gallery %}
+    <img src="{{ src | relative_url }}" alt="{{ page.title }} — photo {{ forloop.index }}">
+    {% endfor %}
+  </div>
+  <button class="carousel-arrow" onclick="scrollPostGallery(1)" aria-label="Scroll right">›</button>
+</div>
+<script>
+  function scrollPostGallery(dir){
+    const track = document.getElementById('postGallery');
+    if(track) track.scrollBy({left: dir * 320, behavior:'smooth'});
+  }
+</script>
+{% elsif page.image %}
 <div class="post-visual" style="background-image:url('{{ page.image | relative_url }}');"></div>
 {% elsif page.visual %}
 <div class="post-visual {{ page.visual }}"></div>

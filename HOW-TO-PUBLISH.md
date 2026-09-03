@@ -38,7 +38,9 @@ Everything after the second `---` is the body — write it as plain Markdown (pa
 - **popular: true** — (archives only) bumps this entry to the front of the "Archives & Visuals" carousel on the home page, ahead of ones sorted by date.
 - **visual: t1** through **t6** — picks one of six built-in gradient backgrounds for the post's visual banner and its tile in Archives/the home carousel. Cycle through `t1`–`t6` for variety; there's no need to keep them unique.
 - **tag: "Some short label"** — projects only. Overrides the mono label shown on the Projects page (e.g. "Channel build-out") instead of just showing "Project".
-- **image: /assets/images/your-photo.jpg** — a real photo for this post. When set, it replaces the `visual` gradient everywhere this post's thumbnail shows up: the Articles listing row, the Archives grid/carousel tile, and the post's own banner. See "Adding photos and videos" below.
+- **issue: "Volume 1 - Issue 1"** — shows a small reference number next to the type label at the top of the post (e.g. "ESSAY · VOLUME 1 - ISSUE 1"). Optional; only appears on the post's own page.
+- **image: /assets/images/your-photo.jpg** — a real photo for this post. When set, it replaces the `visual` gradient everywhere this post's thumbnail shows up: the Articles listing row, the Archives grid/carousel tile, and the post's own banner (unless `gallery` is also set, see below). See "Adding photos and videos" below.
+- **gallery: [list of image paths]** — a scrollable photo album at the top of the post, in place of the single banner. See "Adding photos and videos" below. Keep `image:` set too (pick one photo from the set) so the post still has a real thumbnail on Articles/Archives listings, which don't use `gallery`.
 
 ## Adding photos and videos
 
@@ -51,6 +53,16 @@ Everything after the second `---` is the body — write it as plain Markdown (pa
    image: /assets/images/two-truths-01.jpg
    ```
    (Note the leading `/`.) This becomes the post's thumbnail on the Articles/Archives listings, its tile in the home page carousel, and the banner image at the top of the post itself — no `visual: tN` needed once `image` is set.
+
+**A scrollable photo album at the top of the post:** upload all the photos the same way, then list them under `gallery:` in front matter, one per line:
+```yaml
+image: /assets/images/two-truths-01.jpg
+gallery:
+  - /assets/images/two-truths-01.jpg
+  - /assets/images/two-truths-02.jpg
+  - /assets/images/two-truths-03.jpg
+```
+This replaces the single banner with a horizontally-scrollable filmstrip the reader can drag or click through with arrows. Keep `image:` set to one of the same photos so listings elsewhere on the site still have a thumbnail.
 
 **Photos inside the article body** (in addition to, or instead of, the banner): just use normal Markdown image syntax anywhere in the post body, after uploading the file the same way:
 ```markdown
