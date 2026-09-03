@@ -176,6 +176,12 @@ h1.wordmark{
 .article-row .thumb{
   flex:0 0 88px; width:88px; height:88px; object-fit:cover; border:1px solid var(--line);
 }
+.article-row .thumb.t1{background:linear-gradient(160deg,#3B5744,#20301F);}
+.article-row .thumb.t2{background:linear-gradient(160deg,#8A6B45,#4A3A28);}
+.article-row .thumb.t3{background:linear-gradient(160deg,#5B6B6C,#2B3839);}
+.article-row .thumb.t4{background:linear-gradient(160deg,#9C5A34,#5A3319);}
+.article-row .thumb.t5{background:linear-gradient(160deg,#46504A,#232B26);}
+.article-row .thumb.t6{background:linear-gradient(160deg,#7A7057,#3E3826);}
 .article-row .meta{font-family:'IBM Plex Mono', monospace; font-size:11px; color:var(--ink-soft); flex:0 0 110px;}
 .article-row .body{flex:1;}
 .article-row h3{font-family:'Fraunces', serif; font-weight:500; font-size:22px; margin:0 0 8px; transition:color .15s;}

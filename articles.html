@@ -12,7 +12,11 @@ permalink: /articles/
   {% assign articles = site.posts | where: "section", "articles" | sort: "date" | reverse %}
   {% for post in articles %}
   <a class="article-row" href="{{ post.url | relative_url }}">
-    {% if post.image %}<img class="thumb" src="{{ post.image | relative_url }}" alt="">{% endif %}
+    {% if post.image %}
+    <img class="thumb" src="{{ post.image | relative_url }}" alt="">
+    {% else %}
+    <div class="thumb {{ post.visual | default: 't1' }}"></div>
+    {% endif %}
     <div class="meta">{{ post.date | date: "%b %Y" | upcase }}</div>
     <div class="body">
       <h3>{{ post.title }}</h3>
@@ -21,6 +25,7 @@ permalink: /articles/
   </a>
   {% endfor %}
   <div class="article-row">
+    <div class="thumb" style="background:var(--paper-dim);"></div>
     <div class="meta">—</div>
     <div class="body">
       <h3 style="color:var(--ink-soft);">More coming</h3>

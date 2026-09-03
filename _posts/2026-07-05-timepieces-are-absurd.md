@@ -6,6 +6,7 @@ section: articles
 permalink: /articles/timepieces-are-absurd/
 excerpt: "Phones, cars, and microwaves all tell time better than a watch ever will. So why do we still want one?"
 image: /assets/images/timepieces-are-absurd-ad-rolex-explorer.jpg
+featured: true
 gallery:
   - /assets/images/timepieces-are-absurd-ad-rolex-explorer.jpg
   - /assets/images/timepieces-are-absurd-ad-timex.jpg
