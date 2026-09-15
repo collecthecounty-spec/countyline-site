@@ -198,6 +198,7 @@ h1.wordmark{
   display:flex; align-items:flex-end; padding:14px;
 }
 .archive-tile .cap{font-family:'IBM Plex Mono', monospace; font-size:10.5px; color:var(--paper); position:relative; z-index:1;}
+.archive-tile .cap .issue{display:block; margin-top:3px; opacity:.7; font-size:9.5px;}
 .archive-tile{background-size:cover; background-position:center;}
 .archive-tile::before{content:''; position:absolute; inset:0;}
 .archive-tile.t1::before{background:linear-gradient(160deg,#3B5744,#20301F);}

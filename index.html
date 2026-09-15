@@ -76,9 +76,9 @@ permalink: /
   <div class="carousel-track" id="homeCarousel">
     {% for post in carousel_posts %}
     {% if post.image %}
-    <a class="archive-tile has-image" href="{{ post.url | relative_url }}" style="background-image:url('{{ post.image | relative_url }}');"><span class="cap mono">{{ post.title | upcase }}</span></a>
+    <a class="archive-tile has-image" href="{{ post.url | relative_url }}" style="background-image:url('{{ post.image | relative_url }}');"><span class="cap mono">{{ post.title | upcase }}{% if post.issue %}<span class="issue">{{ post.issue | upcase }}</span>{% endif %}</span></a>
     {% else %}
-    <a class="archive-tile {{ post.visual | default: 't1' }}" href="{{ post.url | relative_url }}"><span class="cap mono">{{ post.title | upcase }}</span></a>
+    <a class="archive-tile {{ post.visual | default: 't1' }}" href="{{ post.url | relative_url }}"><span class="cap mono">{{ post.title | upcase }}{% if post.issue %}<span class="issue">{{ post.issue | upcase }}</span>{% endif %}</span></a>
     {% endif %}
     {% endfor %}
   </div>
