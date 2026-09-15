@@ -6,7 +6,20 @@ section: articles
 permalink: /articles/what-is-countyline/
 excerpt: "How a notebook full of job-loss journaling turned into a publication built around paying attention to things."
 featured: true
-visual: t6
+image: /assets/images/what-is-countyline-01.jpg
+gallery:
+  - /assets/images/what-is-countyline-01.jpg
+  - /assets/images/what-is-countyline-02.jpg
+  - /assets/images/what-is-countyline-03.jpg
+  - /assets/images/what-is-countyline-04.jpg
+  - /assets/images/what-is-countyline-05.jpg
+  - /assets/images/what-is-countyline-06.jpg
+  - /assets/images/what-is-countyline-07.jpg
+  - /assets/images/what-is-countyline-08.jpg
+  - /assets/images/what-is-countyline-09.jpg
+  - /assets/images/what-is-countyline-10.jpg
+  - /assets/images/what-is-countyline-11.jpg
+  - /assets/images/what-is-countyline-12.jpg
 ---
 CountyLine is a publication, produced like a studio, built around exploration, creativity, and curiosity. We make writing, content, products, and whatever else makes sense, all with the same goal: things that are honest, purposeful, and made with intention.
 
