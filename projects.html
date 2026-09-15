@@ -9,6 +9,7 @@ permalink: /projects/
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
 {% assign projects = site.posts | where: "section", "projects" | sort: "date" | reverse %}
+{% if projects.size > 0 %}
 {% for post in projects %}
 <a class="project-item" href="{{ post.url | relative_url }}">
   <span class="mono">{{ post.tag | default: post.type }}</span>
@@ -16,3 +17,9 @@ permalink: /projects/
   <p>{{ post.excerpt }}</p>
 </a>
 {% endfor %}
+{% else %}
+<div class="section-empty">
+  <p class="display">Coming soon.</p>
+  <p class="mono">Projects post here once they're in motion. Check back.</p>
+</div>
+{% endif %}

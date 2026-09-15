@@ -8,8 +8,9 @@ permalink: /archives/
   <p>A running visual record — this section is still finding its shape.</p>
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
+{% assign archives = site.posts | where: "section", "archives" | sort: "date" | reverse %}
+{% if archives.size > 0 %}
 <div class="archive-grid">
-  {% assign archives = site.posts | where: "section", "archives" | sort: "date" | reverse %}
   {% for post in archives %}
   {% if post.image %}
   <a class="archive-tile has-image" href="{{ post.url | relative_url }}" style="background-image:url('{{ post.image | relative_url }}');"><span class="cap mono">{{ post.title | upcase }}</span></a>
@@ -18,3 +19,9 @@ permalink: /archives/
   {% endif %}
   {% endfor %}
 </div>
+{% else %}
+<div class="section-empty">
+  <p class="display">Coming soon.</p>
+  <p class="mono">Archives & visual sets land here first. Check back.</p>
+</div>
+{% endif %}
