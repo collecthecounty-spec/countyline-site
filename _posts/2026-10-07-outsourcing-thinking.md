@@ -6,7 +6,10 @@ section: articles
 permalink: /articles/outsourcing-thinking/
 excerpt: "AI is the most revolutionary tool since the internet. The question is how much of ourselves we're willing to hand over in exchange for convenience."
 featured: true
-visual: t2
+image: /assets/images/outsourcing-thinking-01.png
+gallery:
+  - /assets/images/outsourcing-thinking-01.png
+  - /assets/images/outsourcing-thinking-02.png
 ---
 I use AI constantly. Probably more than I should, but still, within moderation.
 
