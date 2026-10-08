@@ -9,11 +9,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,400&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+<script>
+  // Apply the saved light/dark choice (or the device's preference) before the page paints.
+  (function(){
+    var t = null;
+    try { t = localStorage.getItem('cl-theme'); } catch(e){}
+    if (!t) t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', t);
+  })();
+</script>
 </head>
 <body>
 
 <header>
   <a class="logo" href="{{ '/' | relative_url }}" aria-label="CountyLine.LA home">County<span>Line</span>.LA</a>
+  <button class="light-switch" type="button" role="switch" aria-checked="true" aria-label="Lights" title="Lights on / off">
+    <span class="screw top"></span>
+    <span class="slot"><span class="lever"></span></span>
+    <span class="screw bottom"></span>
+  </button>
   <nav>
     <a href="{{ '/' | relative_url }}" class="{% if page.url == '/' %}active{% endif %}">Home</a>
     <a href="{{ '/articles/' | relative_url }}" class="{% if page.url contains '/articles' %}active{% endif %}">Articles</a>
@@ -40,6 +54,20 @@
     <a href="{{ '/terms/' | relative_url }}">Terms of Service</a>
   </div>
 </footer>
+
+<script>
+  (function(){
+    var root = document.documentElement, btn = document.querySelector('.light-switch');
+    function sync(){ btn.setAttribute('aria-checked', root.getAttribute('data-theme') !== 'dark'); }
+    sync();
+    btn.addEventListener('click', function(){
+      var t = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', t);
+      try { localStorage.setItem('cl-theme', t); } catch(e){}
+      sync();
+    });
+  })();
+</script>
 
 </body>
 </html>
