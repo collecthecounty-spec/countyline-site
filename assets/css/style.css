@@ -165,7 +165,7 @@ h1.wordmark{
 .featured-wrap{position:relative; margin-top:8px;}
 .featured-card{
   display:none; grid-template-columns:220px 1fr; align-items:stretch;
-  border:1px solid var(--line); background:#000;
+  border:1px solid var(--line); background:var(--paper-dim);
 }
 .featured-card.active{display:grid; animation:fadeIn .4s ease;}
 .featured-visual{min-height:200px; background-size:cover; background-position:center;}
@@ -208,7 +208,7 @@ h1.wordmark{
 .carousel-track::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
 .carousel-track .archive-tile{flex:0 0 200px; scroll-snap-align:start;}
 .carousel-arrow{
-  flex:0 0 auto; width:34px; height:34px; border:1px solid var(--line); background:#000;
+  flex:0 0 auto; width:34px; height:34px; border:1px solid var(--line); background:var(--paper-dim);
   color:var(--pine-deep); font-size:16px; cursor:pointer; border-radius:2px;
 }
 .carousel-arrow:hover{border-color:var(--pine); background:var(--paper);}
