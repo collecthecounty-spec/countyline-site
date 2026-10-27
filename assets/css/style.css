@@ -165,7 +165,7 @@ h1.wordmark{
 .featured-wrap{position:relative; margin-top:8px;}
 .featured-card{
   display:none; grid-template-columns:220px 1fr; align-items:stretch;
-  border:1px solid var(--line); background:var(--paper-dim);
+  border:1px solid var(--line); background:#000;
 }
 .featured-card.active{display:grid; animation:fadeIn .4s ease;}
 .featured-visual{min-height:200px; background-size:cover; background-position:center;}
@@ -208,7 +208,7 @@ h1.wordmark{
 .carousel-track::-webkit-scrollbar-thumb{background:var(--line); border-radius:3px;}
 .carousel-track .archive-tile{flex:0 0 200px; scroll-snap-align:start;}
 .carousel-arrow{
-  flex:0 0 auto; width:34px; height:34px; border:1px solid var(--line); background:var(--paper-dim);
+  flex:0 0 auto; width:34px; height:34px; border:1px solid var(--line); background:#000;
   color:var(--pine-deep); font-size:16px; cursor:pointer; border-radius:2px;
 }
 .carousel-arrow:hover{border-color:var(--pine); background:var(--paper);}
@@ -286,7 +286,7 @@ h1.wordmark{
 /* Archive item: whole photo shown uncropped, inside a frame that's the same size on every item */
 .archive-frame{margin:0 0 40px;}
 .archive-frame-box{
-  height:min(70vh, 640px); border:1px solid var(--line); background:var(--paper-dim);
+  height:min(70vh, 640px); border:1px solid var(--line); background:#000;
   display:flex; align-items:center; justify-content:center; padding:16px;
 }
 .archive-frame-box img{width:100%; height:100%; object-fit:contain; display:block;}
@@ -329,7 +329,7 @@ img.zoomable{cursor:zoom-in;}
 .post-body a{color:var(--pine); text-decoration:underline;}
 .post-body img{max-width:100%; height:auto; display:block; border:1px solid var(--line); margin:28px 0;}
 .post-body figcaption{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--ink-soft); margin:-20px 0 28px;}
-.post-body .video-embed{position:relative; padding-bottom:56.25%; height:0; margin:28px 0; border:1px solid var(--line); background:var(--paper-dim);}
+.post-body .video-embed{position:relative; padding-bottom:56.25%; height:0; margin:28px 0; border:1px solid var(--line); background:#000;}
 .post-body .video-embed iframe{position:absolute; inset:0; width:100%; height:100%; border:0;}
 .back-link{
   display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:12px; text-transform:uppercase;
