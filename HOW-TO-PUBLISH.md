@@ -40,6 +40,7 @@ Everything after the second `---` is the body — write it as plain Markdown (pa
 - **tag: "Some short label"** — projects only. Overrides the mono label shown on the Projects page (e.g. "Channel build-out") instead of just showing "Project".
 - **issue: "Volume 1 - Issue 1"** — shows a small reference number next to the type label at the top of the post (e.g. "ESSAY · VOLUME 1 - ISSUE 1"). Optional; only appears on the post's own page.
 - **image: /assets/images/your-photo.jpg** — a real photo for this post. When set, it replaces the `visual` gradient everywhere this post's thumbnail shows up: the Articles listing row, the Archives grid/carousel tile, and the post's own banner (unless `gallery` is also set, see below). See "Adding photos and videos" below.
+- **credit: "Name"** — who took or made the photo. Shown as a small "Credit: Name" line under the image on its page. Add **credit_url:** with a link (their site, Instagram, the source) to make the name clickable. On Archive items the photo is always shown whole, never cropped, inside a frame that's the same size on every item.
 - **gallery: [list of image paths]** — a scrollable photo album at the top of the post, in place of the single banner. See "Adding photos and videos" below. Keep `image:` set too (pick one photo from the set) so the post still has a real thumbnail on Articles/Archives listings, which don't use `gallery`.
 
 ## Adding photos and videos

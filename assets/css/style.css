@@ -283,6 +283,27 @@ h1.wordmark{
 
 /* ---- Post detail page ---- */
 .post-visual{aspect-ratio:16/6; border:1px solid var(--line); margin-bottom:40px; background-size:cover; background-position:center;}
+/* Archive item: whole photo shown uncropped, inside a frame that's the same size on every item */
+.archive-frame{margin:0 0 40px;}
+.archive-frame-box{
+  height:min(70vh, 640px); border:1px solid var(--line); background:var(--paper-dim);
+  display:flex; align-items:center; justify-content:center; padding:16px;
+}
+.archive-frame-box img{width:100%; height:100%; object-fit:contain; display:block;}
+.photo-credit{font-size:11px; color:var(--ink-soft); margin-top:8px; text-align:right;}
+.photo-credit a{color:inherit;}
+/* Click-to-enlarge for post photos */
+img.zoomable{cursor:zoom-in;}
+.lightbox{
+  position:fixed; inset:0; z-index:1000; background:rgba(10,11,9,0.92);
+  display:flex; align-items:center; justify-content:center; padding:24px; cursor:zoom-out;
+}
+.lightbox[hidden]{display:none;}
+.lightbox img{max-width:100%; max-height:100%; object-fit:contain; display:block; box-shadow:0 10px 40px rgba(0,0,0,0.5);}
+.lightbox-close{
+  position:absolute; top:14px; right:18px; background:none; border:0; color:#F2F0E9;
+  font-size:34px; line-height:1; cursor:pointer;
+}
 .post-gallery{display:flex; align-items:center; gap:10px; margin-bottom:40px;}
 .gallery-track{
   display:flex; gap:10px; overflow-x:auto; scroll-behavior:smooth; scroll-snap-type:x mandatory;
@@ -383,4 +404,5 @@ footer{
   .more-grid{grid-template-columns:1fr;}
   .carousel-track .archive-tile{flex:0 0 160px;}
   .gallery-track img{height:220px;}
+  .archive-frame-box{height:auto; aspect-ratio:4/5; padding:10px;}
 }

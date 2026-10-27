@@ -5,6 +5,7 @@ section: archives
 permalink: /archives/what-is-countyline-09/
 excerpt: "From What is CountyLine? (V-1.0)."
 image: /assets/images/what-is-countyline-09.jpg
+credit: "Bulova advertisement"
 issue: "V-1.0"
 date: 2026-09-14 19:00:00 -0000
 ---

@@ -5,6 +5,7 @@ section: archives
 permalink: /archives/timepieces-are-absurd-04/
 excerpt: "From Timepieces Are Absurd (Volume 1 - Issue 1)."
 image: /assets/images/timepieces-are-absurd-ad-bulova.jpg
+credit: "Bulova advertisement"
 issue: "Volume 1 - Issue 1"
 date: 2026-07-05 13:00:00 -0000
 ---

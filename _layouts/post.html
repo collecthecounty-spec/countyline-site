@@ -8,12 +8,19 @@ layout: default
 </div>
 <div class="marker-line"><div class="tick"></div><div class="rule"></div></div>
 
-{% if page.gallery %}
+{% if page.section == "archives" and page.image %}
+<figure class="archive-frame">
+  <div class="archive-frame-box">
+    <img class="zoomable" src="{{ page.image | relative_url }}" alt="{{ page.alt | default: page.title }}">
+  </div>
+  {% if page.credit %}<figcaption class="photo-credit mono">Credit: {% if page.credit_url %}<a href="{{ page.credit_url }}" target="_blank" rel="noopener">{{ page.credit }}</a>{% else %}{{ page.credit }}{% endif %}</figcaption>{% endif %}
+</figure>
+{% elsif page.gallery %}
 <div class="post-gallery">
   <button class="carousel-arrow" onclick="scrollPostGallery(-1)" aria-label="Scroll left">‹</button>
   <div class="gallery-track" id="postGallery">
     {% for src in page.gallery %}
-    <img src="{{ src | relative_url }}" alt="{{ page.title }} — photo {{ forloop.index }}">
+    <img class="zoomable" src="{{ src | relative_url }}" alt="{{ page.title }} — photo {{ forloop.index }}">
     {% endfor %}
   </div>
   <button class="carousel-arrow" onclick="scrollPostGallery(1)" aria-label="Scroll right">›</button>
@@ -35,3 +42,24 @@ layout: default
 </div>
 
 <a class="back-link" href="{{ page.section | prepend: '/' | append: '/' | relative_url }}">← Back to {{ page.section | capitalize }}</a>
+
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
+  <button class="lightbox-close" aria-label="Close">×</button>
+  <img id="lightboxImg" alt="">
+</div>
+<script>
+  (function(){
+    const box = document.getElementById('lightbox');
+    const img = document.getElementById('lightboxImg');
+    document.querySelectorAll('.post-body img').forEach(el => el.classList.add('zoomable'));
+    document.querySelectorAll('img.zoomable').forEach(el => {
+      el.addEventListener('click', () => {
+        img.src = el.currentSrc || el.src; img.alt = el.alt;
+        box.hidden = false; document.body.style.overflow = 'hidden';
+      });
+    });
+    function close(){ box.hidden = true; img.src = ''; document.body.style.overflow = ''; }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if(e.key === 'Escape' && !box.hidden) close(); });
+  })();
+</script>

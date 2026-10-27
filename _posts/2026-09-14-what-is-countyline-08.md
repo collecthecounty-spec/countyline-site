@@ -5,6 +5,7 @@ section: archives
 permalink: /archives/what-is-countyline-08/
 excerpt: "From What is CountyLine? (V-1.0)."
 image: /assets/images/what-is-countyline-08.jpg
+credit: "Star Wars (1977), Lucasfilm, behind the scenes"
 issue: "V-1.0"
 date: 2026-09-14 18:00:00 -0000
 ---

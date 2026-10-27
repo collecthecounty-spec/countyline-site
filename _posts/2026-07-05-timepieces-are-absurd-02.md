@@ -5,6 +5,7 @@ section: archives
 permalink: /archives/timepieces-are-absurd-02/
 excerpt: "From Timepieces Are Absurd (Volume 1 - Issue 1)."
 image: /assets/images/timepieces-are-absurd-ad-timex.jpg
+credit: "Timex advertisement"
 issue: "Volume 1 - Issue 1"
 date: 2026-07-05 11:00:00 -0000
 ---

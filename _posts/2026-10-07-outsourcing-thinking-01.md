@@ -5,6 +5,7 @@ section: archives
 permalink: /archives/outsourcing-thinking-01/
 excerpt: "From Outsourcing Thinking (V-1.2)."
 image: /assets/images/outsourcing-thinking-01.png
+credit: "2001: A Space Odyssey (1968), MGM"
 issue: "V-1.2"
 date: 2026-10-07 11:00:00 -0000
 ---
