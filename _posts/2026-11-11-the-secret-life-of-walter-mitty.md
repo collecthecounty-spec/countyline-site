@@ -13,6 +13,7 @@ gallery:
   - /assets/images/walter-mitty-03.jpg
   - /assets/images/walter-mitty-04.jpg
   - /assets/images/walter-mitty-05.jpg
+credit: "The Secret Life of Walter Mitty (2013), 20th Century Fox"
 ---
 The Secret Life of a man constantly living in his head, imagining what could be, only to snap back into reality and carry on with his predictable life.
 

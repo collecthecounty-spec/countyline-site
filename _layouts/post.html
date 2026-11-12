@@ -36,6 +36,7 @@ layout: default
 {% elsif page.visual %}
 <div class="post-visual {{ page.visual }}"></div>
 {% endif %}
+{% if page.credit and page.section != "archives" and page.gallery or page.credit and page.section != "archives" and page.image %}<p class="photo-credit mono">Credit: {% if page.credit_url %}<a href="{{ page.credit_url }}" target="_blank" rel="noopener">{{ page.credit }}</a>{% else %}{{ page.credit }}{% endif %}</p>{% endif %}
 
 <div class="post-body">
 {{ content }}
