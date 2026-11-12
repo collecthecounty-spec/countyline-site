@@ -28,7 +28,7 @@ layout: default
 <script>
   function scrollPostGallery(dir){
     const track = document.getElementById('postGallery');
-    if(track) track.scrollBy({left: dir * 320, behavior:'smooth'});
+    if(track) track.scrollBy({left: dir * track.clientWidth, behavior:'smooth'});
   }
 </script>
 {% elsif page.image %}
@@ -46,21 +46,51 @@ layout: default
 
 <div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Enlarged photo">
   <button class="lightbox-close" aria-label="Close">×</button>
+  <button class="lightbox-nav lightbox-prev" aria-label="Previous photo">‹</button>
   <img id="lightboxImg" alt="">
+  <button class="lightbox-nav lightbox-next" aria-label="Next photo">›</button>
+  <div class="lightbox-count mono" id="lightboxCount"></div>
 </div>
 <script>
   (function(){
     const box = document.getElementById('lightbox');
     const img = document.getElementById('lightboxImg');
+    const count = document.getElementById('lightboxCount');
+    const prev = box.querySelector('.lightbox-prev');
+    const next = box.querySelector('.lightbox-next');
+    const track = document.getElementById('postGallery');
+    let set = [], idx = 0;
     document.querySelectorAll('.post-body img').forEach(el => el.classList.add('zoomable'));
+    function show(i){
+      idx = (i + set.length) % set.length;
+      const el = set[idx];
+      img.src = el.currentSrc || el.src; img.alt = el.alt;
+      const many = set.length > 1;
+      prev.hidden = next.hidden = !many;
+      count.textContent = many ? (idx + 1) + ' / ' + set.length : '';
+    }
     document.querySelectorAll('img.zoomable').forEach(el => {
       el.addEventListener('click', () => {
-        img.src = el.currentSrc || el.src; img.alt = el.alt;
+        const group = el.closest('.gallery-track') || el.closest('.post-body');
+        set = group ? Array.from(group.querySelectorAll('img.zoomable')) : [el];
+        show(set.indexOf(el));
         box.hidden = false; document.body.style.overflow = 'hidden';
       });
     });
-    function close(){ box.hidden = true; img.src = ''; document.body.style.overflow = ''; }
+    function close(){
+      // Leave the page gallery on the photo the viewer ended on.
+      if(track && set[idx] && track.contains(set[idx])) track.scrollTo({left: set[idx].offsetLeft - track.offsetLeft, behavior:'auto'});
+      box.hidden = true; img.src = ''; document.body.style.overflow = '';
+    }
+    prev.addEventListener('click', e => { e.stopPropagation(); show(idx - 1); });
+    next.addEventListener('click', e => { e.stopPropagation(); show(idx + 1); });
+    img.addEventListener('click', e => e.stopPropagation());
     box.addEventListener('click', close);
-    document.addEventListener('keydown', e => { if(e.key === 'Escape' && !box.hidden) close(); });
+    document.addEventListener('keydown', e => {
+      if(box.hidden) return;
+      if(e.key === 'Escape') close();
+      else if(e.key === 'ArrowLeft' && set.length > 1) show(idx - 1);
+      else if(e.key === 'ArrowRight' && set.length > 1) show(idx + 1);
+    });
   })();
 </script>
