@@ -6,7 +6,13 @@ section: articles
 permalink: /articles/the-secret-life-of-walter-mitty/
 excerpt: "Most of us are still standing at the door of that helicopter, somewhere between the life we wish for and the life we're afraid to leave behind."
 featured: true
-visual: t4
+image: /assets/images/walter-mitty-01.jpg
+gallery:
+  - /assets/images/walter-mitty-01.jpg
+  - /assets/images/walter-mitty-02.jpg
+  - /assets/images/walter-mitty-03.jpg
+  - /assets/images/walter-mitty-04.jpg
+  - /assets/images/walter-mitty-05.jpg
 ---
 The Secret Life of a man constantly living in his head, imagining what could be, only to snap back into reality and carry on with his predictable life.
 
